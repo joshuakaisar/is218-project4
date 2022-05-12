@@ -80,12 +80,10 @@ def logout():
 def dashboard(page):
     page = page
 
-    data = Transaction.query.filter_by(user_id=current_user.id)
-    log = logging.getLogger("myApp")
-    log.info(data)
-    if len(current_user.transactions) != 0:
+    details = Transaction.query.filter_by(user_id=current_user.id)
+    if len(current_user.trans) != 0:
         try:
-            return render_template('dashboard.html',data=data)
+            return render_template('dashboard.html',detials=details)
         except TemplateNotFound:
             abort(404)
     else:
