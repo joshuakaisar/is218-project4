@@ -81,7 +81,7 @@ def dashboard(page):
     page = page
 
     details = Transaction.query.filter_by(user_id=current_user.id)
-    if len(current_user.trans) != 0:
+    if len(current_user.transactions) != 0:
         try:
             return render_template('dashboard.html',detials=details)
         except TemplateNotFound:

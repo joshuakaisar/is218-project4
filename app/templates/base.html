@@ -31,17 +31,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <img class="u-image u-image-default u-preserve-proportions u-image-2" src="../static/images/153996582-0.png" alt="" data-image-width="50" data-image-height="50">
                     <div class="navbar-nav mr-auto">
                         {% if current_user.is_authenticated %}
                             {{ render_nav_item('auth.dashboard','Dashboard' ) }}
-                            {% if current_user.is_admin %}
-                                {{ render_nav_item('auth.browse_users','User Management' ) }}
-                            {% endif %}
-
                         {% else %}
                             {{ render_nav_item('simple_pages.index', 'Home') }}
                         {% endif %}
-
                         {{ render_nav_item('simple_pages.about','About') }}
                         {{ render_nav_item('simple_pages.welcome','Welcome') }}
                     </div>
@@ -54,8 +50,15 @@
                                 My Account
                             </a>
                             <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_profile") }}">Manage Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_account") }}">Manage Account</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_profile") }}">Manage
+                                    Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_account") }}">Manage
+                                    Account</a></li>
+                                {% if current_user.is_admin %}
+                                    <li><a class="dropdown-item" href="{{ url_for("auth.browse_users") }}">User Mgmt</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for("transactions.transactions_upload") }}">Transaction Mgmt</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for("transactions.transactions_browse") }}">Upload Transactions</a></li>
+                                {% endif %}
                                 <li><a class="dropdown-item" href="{{ url_for("auth.logout") }}">Logout</a></li>
                             </ul>
                         </li>
