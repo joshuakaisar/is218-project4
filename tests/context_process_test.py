@@ -1,10 +1,9 @@
-"""This is a summmary doing context processes for the directory above called
-context processes"""
+"""context processes"""
 import datetime
 from os import getenv
 
 def test_context_variables_environment(client):
-    """This test checks if the environment is printed"""
+    """environment"""
     response = client.get("/")
     env = getenv('FLASK_ENV', None)
     test_string = f"Environment: {env}"
@@ -13,7 +12,7 @@ def test_context_variables_environment(client):
     assert content in response.data
 
 def test_context_variables_year(client):
-    """This tests checks if the copyright and current year are printed"""
+    """copyright"""
     response = client.get("/")
     current_date_time = datetime.datetime.now()
     date = current_date_time.date()
@@ -24,7 +23,7 @@ def test_context_variables_year(client):
     assert content in response.data
 
 def test_context_currency_format(client):
-    """This tests checks if the copyright and current year are printed"""
+    """copyright"""
     response = client.get("/")
     num = '100'
     test_string = f"{num}"
