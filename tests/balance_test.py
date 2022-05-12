@@ -5,7 +5,7 @@ from app.db.models import User
 
 
 def test_balance_calculate(application):
-    """calculating"""
+    """calc"""
     application.test_client_class = FlaskLoginClient
     user = User('keith@webizly.com', 'testtest', True)
     db.session.add(user)

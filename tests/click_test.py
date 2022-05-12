@@ -1,4 +1,4 @@
-"""click test"""
+"""press test"""
 #import logging
 import os
 
@@ -9,7 +9,7 @@ from app.cli import create_database, create_logs
 runner = CliRunner()
 
 def test_create_logs():
-    """logs"""
+    """log"""
     response = runner.invoke(create_logs)
     assert response.exit_code == 0
     root = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +19,7 @@ def test_create_logs():
 
 
 def test_create_database():
-    """creating db test"""
+    """db test"""
     response = runner.invoke(create_database)
     assert response.exit_code == 0
     root = os.path.dirname(os.path.abspath(__file__))
