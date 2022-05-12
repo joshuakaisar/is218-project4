@@ -1,9 +1,9 @@
-"""testing sign up/in"""
+"""signing"""
 import logging
 from app.auth.forms import login_form, register_form
 
 def test_user_login(application):
-    """sign in"""
+    """old user"""
     log = logging.getLogger("myApp")
     log.info("user login test")
     with application.test_request_context():
@@ -14,7 +14,7 @@ def test_user_login(application):
 
 
 def test_user_register(application):
-    """sign up"""
+    """new"""
     log = logging.getLogger("myApp")
     log.info("user register test")
     with application.test_request_context():
