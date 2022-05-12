@@ -4,7 +4,7 @@ from app.db import db
 from app.db.models import User
 
 def test_access_dashboard_accepted(application):
-    """success for dash"""
+    """y dash"""
     application.test_client_class = FlaskLoginClient
     user = User('keith@webizly.com', 'testtest', True)
     db.session.add(user)
@@ -18,7 +18,7 @@ def test_access_dashboard_accepted(application):
 
 
 def test_access_dashboard_denied(application):
-    """denied dash"""
+    """n dash"""
     application.test_client_class = FlaskLoginClient
     assert db.session.query(User).count() == 0
     with application.test_client(user = None) as clients:
